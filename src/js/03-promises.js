@@ -16,14 +16,6 @@ function createPromise(position, delay) {
   });
 }
 
-// promise
-//   .then(({ position, delay }) => {
-//     Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-//   })
-//   .catch(({ position, delay }) => {
-//     Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-//   });
-
 formRef.addEventListener('submit', onSubmit);
 
 function onSubmit(evt) {
@@ -33,9 +25,7 @@ function onSubmit(evt) {
     let position = i + 1;
     const delays = Number(delay.value) + step.value * i;
 
-    // console.log('position');
-
-    createPromise(position, delays)
+       createPromise(position, delays)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
           `✅ Fulfilled promise ${position} in ${delay}ms`
@@ -47,10 +37,6 @@ function onSubmit(evt) {
         );
       });
   }
-  if (delay.value > 0 || step.value > 0 || amount.value > 0) {
-  } else {
-    return;
-  }
-
+ 
   evt.currentTarget.reset();
 }
